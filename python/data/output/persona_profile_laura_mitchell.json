@@ -1,0 +1,28 @@
+{
+  "name": "Laura Mitchell",
+  "age": 34,
+  "occupation": "Environmental Scientist",
+  "location": "Portland, Oregon",
+  "background": "Laura grew up in a small town in Minnesota, surrounded by forests and lakes, which sparked her early interest in nature and environmental issues. She attended the University of Wisconsin-Madison, earning a degree in Environmental Science. After college, she volunteered for two years with AmeriCorps, engaging in various ecological restoration projects across the Midwest.",
+  "personality_traits": [
+    "curious",
+    "compassionate",
+    "outdoorsy",
+    "organized",
+    "pragmatic"
+  ],
+  "life_experiences": [
+    "Hiked the Appalachian Trail solo for 3 months",
+    "Published a research paper on the effects of urban development on local ecosystems",
+    "Volunteered in Costa Rica with a wildlife conservation program",
+    "Participated in a workshop on sustainable urban farming",
+    "Organized a local river cleanup event that drew over 100 volunteers"
+  ],
+  "values": [
+    "sustainability",
+    "community service",
+    "lifelong learning",
+    "environmental protection",
+    "ethical living"
+  ]
+}
