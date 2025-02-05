@@ -17,6 +17,10 @@ source venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 
+# Set the environment variables
+cp .env.example .env
+# Edit the .env file to set the environment variables
+
 # Run the script
 python clone_me_qa_generator.py
 ```

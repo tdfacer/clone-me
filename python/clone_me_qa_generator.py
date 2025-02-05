@@ -5,6 +5,7 @@ from openai import OpenAI
 import csv
 from pathlib import Path
 import json
+from dotenv import load_dotenv
 
 
 DATA_DIR = "./data"
@@ -158,6 +159,8 @@ def process_questions(input_file: str, client: OpenAI) -> List[QAPair]:
 
 
 def main():
+    load_dotenv()
+
     # Configuration
     input_file = INPUT_FILE
     client = OpenAI()
