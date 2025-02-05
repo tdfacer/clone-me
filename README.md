@@ -2,12 +2,13 @@
 
 ## Quickstart 🚀
 
-Clone Me makes it easy to create a personal AI clone by fine-tuning the DeepSeek-R1-Distill-Llama-8B model using the Unsloth library. Follow these steps to get started:
+Clone Me makes it easy to create a personal AI clone by fine-tuning the DeepSeek-R1-Distill-Llama-8B model using the Unsloth library.
+
+Take a peek at the example [notebook](./python/notebooks/clone_me.ipynb), or follow these steps to get started:
 
 ### Step 1: Choose Your Dataset
 1. **Use Sample Data** (Quickstart):
-   - Sample data has already been generated for you and is ready to use.
-   - Jump directly into the [notebook](./python/notebooks) and start training.
+   - Sample data has already been generated for you and is ready to use. The notebook will automatically load this data.
 2. **Create Your Own Dataset**:
    - Head to the [Clone Me Website](https://clone-me-frontend.vercel.app/) to:
      - Answer pre-built questions.
