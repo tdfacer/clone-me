@@ -107,3 +107,24 @@ This project requires training data. To clone yourself:
 # Contribution
 
 Contributions are welcome! Feel free to open issues or submit pull requests to improve the project.
+
+---
+
+## Tips and Tricks
+
+Push your model to HuggingFace Hub (make sure to choose the gguf version)
+```python
+#model.push_to_hub_gguf("<your_username>/<your-model-name>", tokenizer, quantization_method = "q4_k_m")
+model.push_to_hub_gguf("tdfacer/clone-me-gguf", tokenizer, quantization_method = "q4_k_m")
+```
+Download and install [ollama](https://ollama.com/)
+Start ollama with the following command
+```bash
+ollama serve
+```
+
+Now run your model with the following command
+```bash
+# ollama run <your_username>/<your-model-name>
+ollama run hf.co/tdfacer/clone-me-gguf
+```
