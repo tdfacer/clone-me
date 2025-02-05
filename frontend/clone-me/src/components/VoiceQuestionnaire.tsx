@@ -74,6 +74,25 @@ const VoiceQuestionnaire = () => {
   const COLAB_URL =
     "https://colab.research.google.com/github/tdfacer/clone-me/blob/main/python/notebooks/clone_me.ipynb";
 
+  const QuestionnaireLinks = () => (
+    <div className="flex items-center justify-center space-x-3 mb-4">
+      <a href={COLAB_URL} target="_blank" rel="noopener noreferrer">
+        <img
+          src="https://colab.research.google.com/assets/colab-badge.svg"
+          alt="Open In Colab"
+        />
+      </a>
+      <a
+        href={GITHUB_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 hover:underline"
+      >
+        View on GitHub
+      </a>
+    </div>
+  );
+
   // Load saved state from localStorage
   useEffect(() => {
     const savedState = localStorage.getItem(STORAGE_KEY);
@@ -571,6 +590,7 @@ const VoiceQuestionnaire = () => {
 
   return (
     <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100 p-8">
+      <QuestionnaireLinks />
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg p-6">
         {error && (
           <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
