@@ -6,6 +6,7 @@ import {
   Upload,
   ChevronDown,
   ChevronRight,
+  Github,
 } from "lucide-react";
 import Papa from "papaparse";
 
@@ -75,21 +76,37 @@ const VoiceQuestionnaire = () => {
     "https://colab.research.google.com/github/tdfacer/clone-me/blob/main/python/notebooks/clone_me.ipynb";
 
   const QuestionnaireLinks = () => (
-    <div className="flex items-center justify-center space-x-3 mb-4">
-      <a href={COLAB_URL} target="_blank" rel="noopener noreferrer">
+    <div className="flex items-center justify-center space-x-4 mb-4">
+      <a
+        href={COLAB_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="h-8 inline-flex items-center"
+      >
         <img
           src="https://colab.research.google.com/assets/colab-badge.svg"
           alt="Open In Colab"
+          className="h-full"
         />
       </a>
+
       <a
         href={GITHUB_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-600 hover:underline"
+        className="h-8 px-4 bg-gray-800 text-white rounded-md hover:bg-gray-700 inline-flex items-center"
       >
+        <Github className="w-4 h-4 mr-2" />
         View on GitHub
       </a>
+
+      <iframe
+        src="https://ghbtns.com/github-btn.html?user=tdfacer&repo=clone-me&type=star&count=true&size=large"
+        scrolling="0"
+        width="130"
+        height="30"
+        title="GitHub"
+      ></iframe>
     </div>
   );
 
