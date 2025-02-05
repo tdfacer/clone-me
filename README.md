@@ -50,9 +50,12 @@ This project demonstrates how to fine-tune the DeepSeek-R1-Distill-Llama-8B mode
 - Weights & Biases account (optional, for training metrics).
 - Personal Q&A dataset in CSV format with columns: `Question`, `Complex_CoT`, `Response`.
 
-You have a couple of options for datasets:
-1. Use a sample dataset generated from this script.
-2. Use the [Clone Me Website](https://clone-me-peach.vercel.app/) to build out a dataset for yourself!
+---
+
+## Artifacts
+
+- **Model**: DeepSeek-R1-Distill-Llama-8B model fine-tuned on your personal dataset. See my example model on Hugging Face: [tdfacer/clone-me-gguf](https://huggingface.co/tdfacer/clone-me-gguf).
+- **Training Data**: Personal Q&A dataset generated using the Clone Me Web App. See my example dataset on Hugging Face: [tdfacer/clone_me_generated_sample](https://huggingface.co/datasets/tdfacer/clone_me_generated_sample).
 
 ---
 
