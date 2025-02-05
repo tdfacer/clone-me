@@ -9,7 +9,7 @@ Clone Me makes it easy to create a personal AI clone by fine-tuning the DeepSeek
    - Sample data has already been generated for you and is ready to use.
    - Jump directly into the [notebook](./python/notebooks) and start training.
 2. **Create Your Own Dataset**:
-   - Head to the [Clone Me Website](https://clone-me-peach.vercel.app/) to:
+   - Head to the [Clone Me Website](https://clone-me-frontend.vercel.app/) to:
      - Answer pre-built questions.
      - Upload your custom questions in CSV format.
      - Generate training data for your AI clone.
@@ -62,7 +62,7 @@ This project demonstrates how to fine-tune the DeepSeek-R1-Distill-Llama-8B mode
 ## Important❗
 
 This project requires training data. To clone yourself:
-- Visit the [Clone Me Website](https://clone-me-peach.vercel.app/) to create your dataset.
+- Visit the [Clone Me Website](https://clone-me-frontend.vercel.app/) to create your dataset.
 - Alternatively, use the pre-generated sample dataset loaded into this repository or on Hugging Face for convenience.
 
 ---
@@ -72,7 +72,7 @@ This project requires training data. To clone yourself:
 
 #### Frontend: Clone Me Web App
 
-- **Location**: `./frontend/clone-me` (or hosted at [clone-me-peach.vercel.app/](https://clone-me-peach.vercel.app/))
+- **Location**: `./frontend/clone-me` (or hosted at [clone-me-frontend.vercel.app/](https://clone-me-frontend.vercel.app/))
 - **Description**: A Vite/React project for building training datasets via a web interface.
 - **Features**:
   - Custom question upload.
