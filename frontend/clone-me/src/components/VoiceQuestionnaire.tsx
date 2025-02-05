@@ -67,7 +67,12 @@ const VoiceQuestionnaire = () => {
   const recordingTranscriptRef = useRef<string>("");
 
   // Compute currentQuestion from questions and currentQuestionIndex
-  const currentQuestion = questions[currentQuestionIndex];
+  const filteredQuestions = questions.filter((q) => q.Question?.trim() !== "");
+  const currentQuestion = filteredQuestions[currentQuestionIndex];
+
+  const GITHUB_URL = "https://github.com/tdfacer/clone-me";
+  const COLAB_URL =
+    "https://colab.research.google.com/github/tdfacer/clone-me/blob/main/python/notebooks/clone_me.ipynb";
 
   // Load saved state from localStorage
   useEffect(() => {
@@ -99,7 +104,7 @@ const VoiceQuestionnaire = () => {
 
   // Save state to localStorage whenever it changes
   useEffect(() => {
-    if (questions.length && selectedFile) {
+    if (filteredQuestions.length && selectedFile) {
       localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify({
@@ -132,6 +137,7 @@ const VoiceQuestionnaire = () => {
       setCurrentQuestionIndex(0);
       setCurrentTranscript("");
       setError("");
+      setIsStarted(false);
       localStorage.removeItem(STORAGE_KEY);
     }
   };
@@ -355,10 +361,14 @@ const VoiceQuestionnaire = () => {
   };
 
   const nextQuestion = () => {
-    if (currentQuestionIndex < questions.length - 1) {
+    if (currentQuestionIndex < filteredQuestions.length - 2) {
       setCurrentQuestionIndex((prev) => prev + 1);
       setCurrentTranscript("");
       setError("");
+    } else if (currentQuestionIndex === filteredQuestions.length - 2) {
+      window.confirm(
+        "Questions complete! Please download your responses and follow the instructions in the notebook.",
+      );
     }
   };
 
@@ -377,9 +387,7 @@ const VoiceQuestionnaire = () => {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `questionnaire_responses_${
-        selectedFile?.name || "default"
-      }.csv`;
+      a.download = `questionnaire_responses_${selectedFile?.name || "default"}`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -394,7 +402,37 @@ const VoiceQuestionnaire = () => {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-8">
         <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-2xl font-bold mb-6">Question Set Selection</h2>
+          <h2 className="text-2xl font-bold mb-2">Create Your AI Clone</h2>
+
+          <div className="mb-6 text-sm text-gray-600">
+            <p className="mb-2">1. Select or upload questions below</p>
+            <p className="mb-2">2. Answer all questions with voice or text</p>
+            <p className="mb-2">3. Download your responses CSV</p>
+            <p className="mb-2">
+              4. Open the notebook and follow instructions:
+            </p>
+            <div className="flex items-center space-x-3 mt-2">
+              <a
+                href={COLAB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <img
+                  src="https://colab.research.google.com/assets/colab-badge.svg"
+                  alt="Open In Colab"
+                />
+              </a>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline"
+              >
+                View on GitHub
+              </a>
+            </div>
+          </div>
 
           {error && (
             <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
@@ -528,7 +566,8 @@ const VoiceQuestionnaire = () => {
 
   // Determine whether we are on the final question and if its answer has been provided.
   const isComplete =
-    currentQuestionIndex === questions.length - 1 && currentResponse?.Response;
+    currentQuestionIndex >= filteredQuestions.length - 2 &&
+    currentResponse?.Response;
 
   return (
     <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100 p-8">
@@ -546,7 +585,7 @@ const VoiceQuestionnaire = () => {
         </div>
 
         <h2 className="text-2xl font-bold mb-6">
-          Question {currentQuestionIndex + 1} of {questions.length}
+          Question {currentQuestionIndex + 1} of {filteredQuestions.length - 1}
         </h2>
 
         <div className="mb-8">
@@ -638,8 +677,8 @@ const VoiceQuestionnaire = () => {
           <div className="flex justify-between">
             <button
               onClick={nextQuestion}
-              className="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-              disabled={!currentResponse?.Response && !isComplete}
+              className="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:opacity-50 disabled:bg-gray-500 disabled:cursor-not-allowed"
+              disabled={!currentResponse?.Response || !!isComplete}
             >
               Next Question
             </button>
